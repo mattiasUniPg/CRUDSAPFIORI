@@ -1,0 +1,211 @@
+<mvc:View
+    controllerName="zacademy.crudoperator.controller.Edit"
+    xmlns:filterbar="sap.ui.comp.filterbar"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:ui="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:vm="sap.ui.comp.variants"
+    height="100%"
+>
+    <Page
+        showNavButton="true"
+        navButtonPress=".onBack"
+    >
+        <f:DynamicPage
+            id="dynamicPageId"
+            showFooter="true"
+        >
+            <!-- DynamicPage Title -->
+            <f:title>
+                <f:DynamicPageTitle>
+                    <!-- <f:heading>
+                    <vm:VariantManagement standardItemText="Collections" />
+                </f:heading> -->
+                </f:DynamicPageTitle>
+            </f:title>
+            <!-- DynamicPage Header -->
+            <f:header>
+                <f:DynamicPageHeader pinnable="true">
+                    <f:content>
+                        <Button
+                            text="Export Excel"
+                            press="onExport"
+                            icon="sap-icon://excel-attachment"
+                        />
+
+                        <fb:FilterBar
+                            id="filterbar"
+                            reset="onReset"
+                            search="_readMethod"
+                            useToolbar="false"
+                            showGoOnFB="false"
+                        >
+                            <fb:filterItems>
+                                <fb:FilterItem
+                                    name="Nome"
+                                    label="Nome"
+                                >
+                                    <fb:control>
+                                        <Input
+                                            value="{modelFilterHome>/Nome}"
+                                        />
+                                    </fb:control>
+                                </fb:FilterItem>
+                                <fb:FilterItem
+                                    name="Cognome"
+                                    label="Cognome"
+                                >
+                                    <fb:control>
+                                        <Input
+                                            value="{modelFilterHome>/Cognome}"
+                                        />
+                                    </fb:control>
+                                </fb:FilterItem>
+                            </fb:filterItems>
+                        </fb:FilterBar>
+                    </f:content>
+                </f:DynamicPageHeader>
+            </f:header>
+            <!-- DynamicPage Content -->
+            <f:content>
+                <Table
+                    id="idTable"
+                    inset="false"
+                    items="{modelResult>/}"
+                    mode="SingleSelectLeft"
+                >
+                    <columns>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Id" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Nome" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Cognome" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Email" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Telefono" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Paese" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Citta" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Provincia" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true"
+                        >
+                            <Text text="Indirizzo" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem
+                            type="Active"
+                            press=""
+                            vAlign="Middle"
+                        >
+                            <cells>
+                                <ObjectIdentifier
+                                    id="ItemText"
+                                    text="{modelResult>Id}"
+                                />
+                                <Text
+                                    id="ItemText1"
+                                    text="{modelResult>Nome}"
+                                />
+                                <Text
+                                    id="ItemText2"
+                                    text="{modelResult>Cognome}"
+                                />
+                                <Text
+                                    id="ItemText3"
+                                    text="{modelResult>Email}"
+                                />
+                                <Text
+                                    id="ItemText4"
+                                    text="{modelResult>Telefono}"
+                                />
+                                <Text
+                                    id="ItemText5"
+                                    text="{modelResult>Paese}"
+                                />
+                                <Text
+                                    id="ItemText6"
+                                    text="{modelResult>Citta}"
+                                />
+                                <Text
+                                    id="ItemText7"
+                                    text="{modelResult>Provincia}"
+                                />
+                                <Text
+                                    id="ItemText8"
+                                    text="{modelResult>Indirizzo}"
+                                />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </f:content>
+            <!-- DynamicPage Footer -->
+            <f:footer>
+                <OverflowToolbar class="center">
+                    <!-- <ToolbarSpacer/> -->
+                    <Button
+                        text="Updating"
+                        icon="sap-icon://user-edit"
+                        press="Updating"
+                    />
+                    <Button
+                        type="Emphasized"
+                        text="Modifica"
+                        visible="true"
+                        press="Updating"
+                        icon="sap-icon://edit"
+                    />
+                    <!-- animazione busyDialog -->
+                    <BusyDialog
+                        id="busyDialog"
+                        title="Modifica dati in corso..."
+                        text="Attendere prego"
+                    />
+                </OverflowToolbar>
+            </f:footer>
+        </f:DynamicPage>
+    </Page>
+</mvc:View>

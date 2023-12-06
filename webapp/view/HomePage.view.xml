@@ -1,0 +1,170 @@
+<mvc:View
+    controllerName="zacademy.crudoperator.controller.HomePage"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Page
+        id="page"
+        title="{i18n>title}" >
+        <VBox class="sapUiSmallMargin">
+            <f:Form
+                id="FormToolbar"
+                editable="true"
+                ariaLabelledBy="Title1">
+                <f:toolbar>
+                    <Toolbar id="TB1">
+                        <Title
+                            id="Title1"
+                            text=""
+                        />
+                        <ToolbarSpacer />
+                        <Button
+                            icon="sap-icon://user-edit"
+                            press="navRouting"
+                            width="40px"
+                        />
+                        <BusyDialog
+                            id="busyDialog"
+                            title="Caricamento in corso..."
+                            text="Attendere prego"
+                        />
+                    </Toolbar>
+                </f:toolbar>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="3"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="4"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer ariaLabelledBy="Title2">
+                        <f:toolbar>
+                            <Toolbar>
+                                <Title
+                                    id="Title2"
+                                    text="AGGIUNTA RECORD" />
+                                <ToolbarSpacer />
+                            </Toolbar>
+                        </f:toolbar>
+                        <f:formElements>
+                            <f:FormElement label="Nome">
+                                <f:fields>
+                                    <Input
+                                        placeholder="Nome"
+                                        id="Nome"
+                                        maxLength="20"
+                                        required="true"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Cognome">
+                                <f:fields>
+                                    <Input
+                                        placeholder="Cognome"
+                                        id="Cognome"
+                                        maxLength="20"
+                                        required="true"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Email">
+                                <f:fields>
+                                    <Input
+                                        type="Email"
+                                        placeholder="Email"
+                                        id="Email"
+                                        maxLength="50"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Telefono">
+                                <f:fields>
+                                    <Input
+                                        type="Tel"
+                                        placeholder="Telefono"
+                                        id="Telefono"
+                                        maxLength="10"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Paese">
+                                <f:fields>
+                                    <Input
+                                        placeholder="Paese"
+                                        id="Paese"
+                                        maxLength="2"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Citta">
+                                <f:fields>
+                                    <Input
+                                        placeholder="Citta"
+                                        id="Citta"
+                                        maxLength="50"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Provincia">
+                                <f:fields>
+                                    <Input
+                                        placeholder="Provincia"
+                                        id="Provincia"
+                                        maxLength="2"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Indirizzo">
+                                <f:fields>
+                                    <Input
+                                        placeholder="Indirizzo"
+                                        id="Indirizzo"
+                                        maxLength="100"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+            <Panel>
+                <FlexBox
+                    height="100px"
+                    alignItems="Start"
+                    justifyContent="Center"
+                >
+                    <Button
+                        id="Button1"
+                        text="Accept"
+                        type="Default"
+                        press="onCreate"
+                        icon="sap-icon://create"
+                        class="sapUiTinyMarginBeginEnd"
+                    />
+
+                    <Button
+                        id="Button2"
+                        text="Reset"
+                        type="Emphasized"
+                        press="oReset"
+                        icon="sap-icon://reset"
+                        class="sapUiTinyMarginBeginEnd"
+                    />
+                </FlexBox>
+            </Panel>
+        </VBox>
+    </Page>
+</mvc:View>

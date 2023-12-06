@@ -1,0 +1,69 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Dialog class="Dialh"
+	id="helloDialog" >
+	<VBox class="hVBox"
+	width="100%">
+		<f:SimpleForm 
+			class="simpleF"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Modifica Dati"
+			labelSpanXL="4"
+			labelSpanL="3"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="4"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content >
+
+				<Label  text="Identify" />
+				<!-- <Input id="IdInput"  value="{modelFragment>/Id} " editable="false"/> -->
+
+				<Label  text="Name" />
+				<Input id="NomeInput"  value="{modelFragment>/Nome} " editable="true"/>
+
+				<Label  text="Cognome" />
+				<Input id="CognomeInput" value="{modelFragment>/Cognome}" editable="true" />
+
+				<Label  text="Email" />
+				<Input  type="Email" id="EmailInput" required="true" value="{modelFragment>/Email}" editable="true" />
+
+                <Label  text="Telefono" />
+				<Input id="TelefonoInput" type="Number" maxLength="10" value="{modelFragment>/Telefono} " editable="true"/>
+
+				<Label  text="Paese" />
+				<Input id="PaeseInput" value="{modelFragment>/Paese}" editable="true" />
+
+                <Label  text="Citta" />
+				<Input id="CittaInput" value="{modelFragment>/Citta}" editable="true" />
+
+                <Label  text="Provincia" />
+				<Input id="ProvinciaInput" type="Text" maxLength="2"  value="{modelFragment>/Provincia} " editable="true"/>
+
+				<Label  text="Indirizzo" />
+				<Input id="IndirizzoInput" value="{modelFragment>/Indirizzo}" editable="true" />
+				
+			</f:content>
+		</f:SimpleForm>
+	
+	</VBox>
+	<HBox class="center" >
+
+		<Button type="Reject"  text="chiudi" press="onCloseDialog" icon="sap-icon://decline" class="sapUiSmallMarginBegin"/>
+		
+		<Button type="Accept" text="salva" press="onSave" icon="sap-icon://save" class="sapUiSmallMarginBegin"/>
+		
+	</HBox>
+	</Dialog>
+</core:FragmentDefinition>

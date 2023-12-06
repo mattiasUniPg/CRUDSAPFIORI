@@ -1,0 +1,147 @@
+<mvc:View
+    controllerName="zacademy.crudoperator.controller.Update"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:ui="sap.ui.table"
+    xmlns:vm="sap.ui.comp.variants"
+    height="100%"
+>
+    <Page
+        showNavButton="true"
+        navButtonPress=".onBack"
+    >
+        <subHeader>
+            <OverflowToolbar design="Solid">
+                <Title
+                    text="{i18n>Editing dati}: {modelResult>/Nome} {modelResult>/Cognome} "
+                    class="boldCss"
+                />
+                <ToolbarSpacer />
+                <Button
+                    id="PressEdit"
+                    text="Edit"
+                    press="onPressUpdating"
+                    class="sapUiLargeMarginEnd"
+                    type="Emphasized"
+                    icon="sap-icon://add-coursebook"
+                />
+            </OverflowToolbar>
+        </subHeader>
+
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Collection"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label text="Nome" />
+                    <Input
+                        maxLength="20"
+                        type="Text"
+                        id="NomeUpd"
+                        value="{modelResult>/Nome}"
+                        editable="true"
+                    />
+                    <Label text="Cognome" />
+                    <Input
+                        maxLength="20"
+                        type="Text"
+                        id="CognomeUpd"
+                        value="{modelResult>/Cognome}"
+                        editable="true"
+                    />
+                    <Label text="Email" />
+                    <Input
+                        maxLength="50"
+                        type="Text"
+                        id="EmailUpd"
+                        value="{modelResult>/Email}"
+                        editable="true"
+                    />
+                    <Label text="Telefono" />
+                    <Input
+                        maxLength="10"
+                        type="Number"
+                        id="TelefonoUpd"
+                        value="{modelResult>/Telefono}"
+                        editable="true"
+                    />
+                    <Label text="Paese" />
+                    <Input
+                        maxLength="2"
+                        type="Text"
+                        id="PaeseUpd"
+                        value="{modelResult>/Paese}"
+                        editable="true"
+                    />
+                    <Label text="Citta" />
+                    <Input
+                        maxLength="50"
+                        type="Text"
+                        id="CittaUpd"
+                        value="{modelResult>/Citta}"
+                        editable="true"
+                    />
+                    <Label text="Provincia" />
+                    <Input
+                        type="Text"
+                        maxLength="2"
+                        id="ProvinciaUpd"
+                        value="{modelResult>/Provincia}"
+                        editable="true"
+                    />
+                    <Label text="Indirizzo" />
+                    <Input
+                        maxLength="100"
+                        type="Text"
+                        id="IndirizzoUpd"
+                        value="{modelResult>/Indirizzo}"
+                        editable="true"
+                    />
+                </f:content>
+            </f:SimpleForm>
+
+            <OverflowToolbar class="center">
+                <!-- <ToolbarSpacer/> -->
+                <Button
+                    type="Emphasized"
+                    text="Modifica"
+                    visible="true"
+                    press="Modifica"
+                    icon="sap-icon://edit"
+                />
+                <Button
+                    type="Default"
+                    text="Cancella"
+                    visible="true"
+                    press="Cancella"
+                    icon="sap-icon://delete"
+                />
+                <!-- animazione busyDialog -->
+                <BusyDialog
+                    id="busyDialog"
+                    title="Modifica dati in corso..."
+                    text="Attendere prego"
+                />
+            </OverflowToolbar>
+        </VBox>
+    </Page>
+</mvc:View>
